@@ -1,4 +1,5 @@
 defmodule KV do
+  use Application
   @moduledoc """
   Documentation for KV.
   """
@@ -12,7 +13,7 @@ defmodule KV do
       :world
 
   """
-  def hello do
-    :world
+  def start( _type, _args )do
+    KV.Supervisor.start_link( name: KV.Supervisor )
   end
 end
